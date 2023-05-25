@@ -1,0 +1,322 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1.0"
+    />
+    <title>HDPS</title>
+
+    <!-- CSS  -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      href="{% static 'css/materialize.css' %}"
+      type="text/css"
+      rel="stylesheet"
+      media="screen,projection"
+    />
+    <link
+      href="{% static 'css/style.css' %}"
+      type="text/css"
+      rel="stylesheet"
+      media="screen,projection"
+    />
+    {% block css %} {% endblock %}
+    <style>
+      footer {
+        padding-left: 295px;
+      }
+      .con {
+        padding-left: 360px;
+        width: 95%;
+      }
+      @media only screen and (max-width: 992px) {
+        .con,
+        footer {
+          padding-left: 0;
+        }
+      }
+    </style>
+    <style>
+      .bg {
+        background-image: url("{% static "img/bg1.jpg" %}");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        opacity: 0.9;
+        z-index: -1;
+      }
+
+      .background {
+        background-image: url("{% static "img/bg.jpg" %}");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        opacity: 0.3;
+        background-position: center;
+      }
+      .user-image {
+        border-radius: 50%;
+        width: 100px !important; /* Kích thước hình ảnh người dùng */
+        height: 100px !important;
+        object-fit: cover;
+      }
+      .user-view {
+        text-align: center !important;
+      }
+      .user-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      .bold-text {
+        font-weight: bold !important;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Nav Bar-->
+    <div class="navbar-fixed">
+      <nav class="black">
+        <div class="container">
+          <div class="nav-wrapper">
+            <a href="/" style="padding-left: 100px" class="brand-logo">HDPS</a>
+            <a href="" data-target="mobile-nav" class="sidenav-trigger">
+              <i class="material-icons">menu</i>
+            </a>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <!-- SIDE NAV BAR-->
+
+    <ul id="slide-out" class="sidenav sidenav-fixed">
+      <li>
+        
+
+        <div class="user-view">
+          <div class="background"></div>
+          <div class="user-info">
+            <img
+              class="circle user-image"
+              src="{% static 'img/user.jpg' %}"
+              alt="User Image"
+            />
+            <div class="user-details">
+              <span class="black-text name bold-text"
+                >User : {{ request.user.username }} </span
+              ><span class="purple-text email bold-text"
+                >{{ request.user.email }}</span
+              >
+            </div>
+          </div>
+        </div>
+      </li>
+      <br />
+
+      <li><div class="divider"></div></li>
+
+      <li>
+        <a
+          style="
+            font-weight: 600;
+            font-size: 18px;
+            height: 70px;
+            padding-top: 10px;
+          "
+          class="waves-effect hoverable"
+          href="/"
+          ><i class="material-icons black-text">batch_prediction</i> Predict
+          Heart Disease
+        </a>
+      </li>
+
+      <li>
+        <a
+          style="
+            font-weight: 600;
+            font-size: 18px;
+            height: 70px;
+            padding-top: 10px;
+          "
+          class="waves-effect hoverable"
+          href="{% url 'record' %}"
+          ><i class="material-icons black-text">history</i> Previous Record
+        </a>
+      </li>
+
+      <li><div class="divider"></div></li>
+    </ul>
+    <a href="#" data-target="slide-out" class="sidenav-trigger"
+      ><i class="material-icons">menu</i></a
+    >
+
+    {% block content %} {% endblock %}
+    <!-- footer -->
+
+    <section>
+      <footer class="hide-on-small-only black page-footer">
+        <div class="" style="width: 90%; margin: auto">
+          <div class="row">
+            <div class="col s12 m6 l3">
+              <h5 class="white-text">HDPS</h5>
+              <p class="grey-text text-lighten-4">
+                Heart Disease Prediction System (HDPS) is a user-friendly
+                web-based application which predicts heart disease using
+                Logistic Regresstion.
+              </p>
+            </div>
+            <div class="col l2 m6 s12 offset-l1">
+              <h5 class="white-text">Quick Links</h5>
+              <ul>
+                <li>
+                  <a class="grey-text text-lighten-3" href="#!">Privacy</a>
+                </li>
+                <li>
+                  <a class="grey-text text-lighten-3" href="#!">Contact</a>
+                </li>
+                <li><a class="grey-text text-lighten-3" href="#!">About</a></li>
+              </ul>
+            </div>
+            <div class="col l2 m6 s12">
+              <h5 class="white-text">Contacts</h5>
+              <ul>
+                <li>Nguyen Phuoc Thinh</li>
+                <li>npthinh.20it2@vku.udn</li>
+                <li>0973309666</li>
+              </ul>
+            </div>
+
+            <div class="col l3 m6 s12 offset-l1">
+              <h5 class="white-text">Visit Us</h5>
+              <br />
+              <a
+                href="https://www.youtube.com/channel/UCLDjgu8Rvc8MjEh5gVRGnVA"
+                target="_blank"
+              >
+                <i
+                  style="color: white; margin: 5px 10px"
+                  class="fab fa-youtube-square fa-2x"
+                ></i
+              ></a>
+              <a
+                href="https://www.facebook.com/nguyen.phuoc.thinh.411"
+                target="_blank"
+              >
+                <i
+                  style="color: white; margin: 5px 10px"
+                  class="fab fa-facebook-square fa-2x"
+                ></i
+              ></a>
+              <a href="https://www.instagram.com/thinh_admin/" target="_blank">
+                <i
+                  style="color: white; margin: 5px 10px"
+                  class="fab fa-instagram fa-2x"
+                ></i
+              ></a>
+              <a href="https://github.com/thinhnguyenvku" target="_blank">
+                <i
+                  style="color: white; margin: 5px 10px"
+                  class="fab fa-github-square fa-2x"
+                ></i>
+              </a>
+            </div>
+          </div>
+          <hr />
+
+          <div class="footer-copyright">© BY THINH_VKU 2023</div>
+        </div>
+      </footer>
+
+      <footer class="hide-on-med-and-up black page-footer">
+        <div class="" style="width: 90%; margin: auto">
+          <div class="center-align row">
+            <div class="col s12 m6 l3">
+              <h5 class="white-text">HDPS</h5>
+              <p class="grey-text text-lighten-4">
+                Heart Disease Prediction System (HDPS) is a user-friendly
+                web-based application which predicts heart disease using
+                Logistic Regresstion.
+              </p>
+            </div>
+            <div class="col l2 m6 s12 offset-l1">
+              <h5 class="white-text">Quick Links</h5>
+              <ul>
+                <li>
+                  <a class="grey-text text-lighten-3" href="#!">Privacy</a>
+                </li>
+                <li>
+                  <a class="grey-text text-lighten-3" href="#!">Contact</a>
+                </li>
+                <li><a class="grey-text text-lighten-3" href="#!">About</a></li>
+              </ul>
+            </div>
+            <div class="col l2 m6 s12">
+              <h5 class="white-text">Contacts</h5>
+              <ul>
+                <li>Nguyen Phuoc Thinh</li>
+                <li>npthinh.20it2@vku.udn</li>
+                <li>0973309666</li>
+              </ul>
+            </div>
+
+            <div class="col l3 m6 s12 offset-l1">
+              <h5 class="white-text">Visit Us</h5>
+
+              <a
+                href="https://www.youtube.com/channel/UCLDjgu8Rvc8MjEh5gVRGnVA"
+                target="_blank"
+              >
+                <i
+                  style="color: white; margin: 5px 10px"
+                  class="fab fa-youtube-square fa-2x"
+                ></i
+              ></a>
+              <a
+                href="https://www.facebook.com/nguyen.phuoc.thinh.411"
+                target="_blank"
+              >
+                <i
+                  style="color: white; margin: 5px 10px"
+                  class="fab fa-facebook-square fa-2x"
+                ></i
+              ></a>
+              <a href="https://www.instagram.com/thinh_admin/" target="_blank">
+                <i
+                  style="color: white; margin: 5px 10px"
+                  class="fab fa-instagram fa-2x"
+                ></i
+              ></a>
+              <a href="https://github.com/thinhnguyenvku" target="_blank">
+                <i
+                  style="color: white; margin: 5px 10px"
+                  class="fab fa-github-square fa-2x"
+                ></i>
+              </a>
+            </div>
+          </div>
+          <hr />
+
+          <div class="footer-copyright">© BY THINH_VKU 2023</div>
+        </div>
+      </footer>
+    </section>
+
+    <!--  Scripts-->
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script
+      src="https://kit.fontawesome.com/9478bf204b.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="{% static 'js/materialize.js' %}"></script>
+    <script src="{% static 'js/init.js' %}"></script>
+  </body>
+</html>

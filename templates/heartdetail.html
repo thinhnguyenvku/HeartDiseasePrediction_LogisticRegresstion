@@ -1,0 +1,77 @@
+{% extends 'base_layout.html' %} {% block css %}
+<style>
+  footer {
+    padding-left: 295px;
+  }
+  .con {
+    padding-left: 390px;
+    width: 90%;
+    flex: 1 0 auto;
+  }
+  @media only screen and (max-width: 992px) {
+    .con,
+    footer {
+      padding-left: 0;
+    }
+  }
+
+  body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+</style>
+{% endblock %} {% block content %}
+
+<div class="con">
+  <h5>Here is the record of your previous Prediction of Heart Disease.</h5>
+
+  <br />
+  <br />
+
+  <table class="striped">
+    <thead>
+      <tr>
+        <th>S.No</th>
+        <th>age</th>
+        <th>sex</th>
+        <th>cp</th>
+        <th>threstbps</th>
+        <th>chol</th>
+        <th>fbs</th>
+        <th>restecg</th>
+        <th>thalach</th>
+        <th>exang</th>
+        <th>oldpeak</th>
+        <th>slope</th>
+        <th>ca</th>
+        <th>thal</th>
+        <th>Probabilty</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {% for data in record_data %}
+      <tr>
+        <td>{{ forloop.counter }}</td>
+        <td>{{ data.age }}</td>
+        <td>{{ data.sex }}</td>
+        <td>{{ data.cp }}</td>
+        <td>{{ data.trestbps }}</td>
+        <td>{{ data.chol }}</td>
+        <td>{{ data.fbs }}</td>
+        <td>{{ data.restcg }}</td>
+        <td>{{ data.thalach }}</td>
+        <td>{{ data.exang }}</td>
+        <td>{{ data.oldpeak }}</td>
+        <td>{{ data.slope }}</td>
+        <td>{{ data.ca }}</td>
+        <td>{{ data.thal }}</td>
+        <td>{{ data.probability }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+{% endblock %}

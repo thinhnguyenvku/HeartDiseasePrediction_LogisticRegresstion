@@ -1,0 +1,68 @@
+{% extends 'base_layout.html' %} {% block css %}
+<style>
+  footer {
+    padding-left: 295px;
+  }
+  .con {
+    padding-left: 390px;
+    width: 90%;
+    flex: 1 0 auto;
+  }
+  @media only screen and (max-width: 992px) {
+    .con,
+    footer {
+      padding-left: 0;
+    }
+  }
+
+  body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+</style>
+{% endblock %} {% block content %}
+
+<div class="con">
+  <h5>Here is the record of your previous Prediction of Heart Disease.</h5>
+  <br />
+  {% if record_data %}
+  <a
+    class="waves-effect waves-light btn-small black"
+    href="{% url 'heartdetail' %}"
+    target="_blank"
+    ><i class="material-icons left">privacy_tip</i>View Details</a
+  >
+  &nbsp; &nbsp; {% endif %}
+
+  <br />
+  <br />
+
+  {% if record_data %}
+  <table class="striped">
+    <thead>
+      <tr>
+        <th>S.No</th>
+        <th>Date</th>
+        <th>Probabilty</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        {% for data in record_data %}
+        <td>{{ forloop.counter }}.</td>
+        <td>{{ data.date }}</td>
+        <td>{{ data.probability }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+  <h5>You have no previous record.</h5>
+  {% endif %}
+  <br />
+  <br />
+</div>
+
+{% endblock %}

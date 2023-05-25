@@ -1,0 +1,42 @@
+{% extends 'base_layout.html' %} {% block css %}
+<style>
+  footer {
+    padding-left: 295px;
+  }
+  .con {
+    padding-left: 390px;
+    width: 90%;
+    flex: 1 0 auto;
+  }
+  @media only screen and (max-width: 992px) {
+    .con,
+    footer {
+      padding-left: 0;
+    }
+  }
+
+  body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+</style>
+{% endblock %}
+{% block content %}
+
+<div class="con">
+  <br />
+  <h5 style="padding-left: 150px">
+    Your probability of having Heart Disease is {{ output1 }}
+  </h5>
+
+  <br />
+  <h5 style="padding-left: 150px">
+    Your chance of having Heart Disease is {{ danger }}. {% if danger == 'low'%} <br />
+    Please continue your healthy habit.
+  </h5>
+  {% endif %}
+    {% if danger == 'high' %}
+  {% endif %}
+</div>
+{% endblock %}
