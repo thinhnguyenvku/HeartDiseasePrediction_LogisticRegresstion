@@ -27,13 +27,12 @@
 <div class="con">
   <br />
   <h5 style="padding-left: 150px">
-    Your probability of having Heart Disease is {{ output1 }}
+    Probability: {{ output1 }}
   </h5>
 
   <br />
   <h5 style="padding-left: 150px">
-    Your chance of having Heart Disease is {{ danger }}. {% if danger == 'low'%} <br />
-    Please continue your healthy habit.
+    Possibility of disease: {{ danger }}. {% if danger == 'low'%} <br />
   </h5>
   {% endif %}
     {% if danger == 'high' %}

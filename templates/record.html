@@ -24,13 +24,12 @@
 {% endblock %} {% block content %}
 
 <div class="con">
-  <h5>Here is the record of your previous Prediction of Heart Disease.</h5>
   <br />
   {% if record_data %}
   <a
     class="waves-effect waves-light btn-small black"
     href="{% url 'heartdetail' %}"
-    target="_blank"
+    target="_parent"
     ><i class="material-icons left">privacy_tip</i>View Details</a
   >
   &nbsp; &nbsp; {% endif %}
@@ -42,8 +41,8 @@
   <table class="striped">
     <thead>
       <tr>
-        <th>S.No</th>
-        <th>Date</th>
+        <th>ID</th>
+        <th>Date of Prediction</th>
         <th>Probabilty</th>
       </tr>
     </thead>
