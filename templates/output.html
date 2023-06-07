@@ -32,10 +32,10 @@
 
   <br />
   <h5 style="padding-left: 150px">
-    Possibility of disease: {{ danger }}. {% if danger == 'low'%} <br />
+    Possibility of disease: {{ danger }}. {% if danger == 'No Disease'%} <br />
   </h5>
   {% endif %}
-    {% if danger == 'high' %}
+    {% if danger == 'Disease' %}
   {% endif %}
 </div>
 {% endblock %}

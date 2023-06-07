@@ -45,7 +45,7 @@ def index(request):  # Diplays previous record of authenticated user
                 model = LogitRegression(learning_rate=0.0001 , iterations=1000)
                 model.fit(X_train, Y_train)
                 output , output1 = model.predict(np.array([age,sex,cp,trestbps,chol,fbs,restcg,thalach,exang,oldpeak,slope,ca,thal]).reshape(1,-1))
-                danger = 'high' if output == 1 else 'low'
+                danger = 'Disease' if output == 1 else 'No Disease'
                 output1=output1[0]
                 saved_data = HeartData(age=age ,  # Saving to database
                 sex = sex,
